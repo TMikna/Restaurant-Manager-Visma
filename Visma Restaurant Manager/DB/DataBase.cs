@@ -16,19 +16,7 @@ namespace Visma_Restaurant_Manager.DB
             _products = new List<Product>();
             _menuItems = new List<MenuItem>();
             _orders = new List<Order>();
-            //_test = new List<int>();
         }
-
-
-        //private List<int> _test;
-        //public List<int> test {
-        //    get {
-        //        return _test;
-        //    }
-        //}
-        //public void addTest(int i) {
-        //    _test.Add(i);
-        //}
 
         public List<Product> products {
             get {

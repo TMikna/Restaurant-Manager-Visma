@@ -55,50 +55,7 @@ namespace Visma_Restaurant_Manager.Views
 
 
 
-        private void runOrders() {
-            Write("You are now in Orders section");
-            bool on = true;
-            while (on)
-            {
-                WriteOrderCommands();
-                int choice;
-                if (!ReadInt(out choice))
-                {
-                    WriteInvalidChoice();
-                    continue;
-                }
-                switch (choice)
-                {
-                    case 1:
-                        List<Order> orders = _orderVm.getOrders();
-                        WriteOrders(orders);
-                        break;
-                    case 2:
-                        if (CreateOrder())
-                            WriteItemAdded();
-                        else
-                            WriteAddOrderFail();
-                        break;
-                    case 5:
-                        _orderVm.WriteOrdersToCsv();
-                        Write("CSV created!");
-                        Write();
-                        break;
-                    case 6:
-                        _orderVm.LoadOrdersFromCsv();
-                        Write("Products Loaded!");
-                        Write();
-                        break;
-                    case 0:
-                        on = false;
-                        continue;
-                    default:
-                        WriteInvalidChoice();
-                        continue;
-                }
-            }
-        }
-
+       
 
         #region MenuItems
         private void runMenuItems() {
@@ -468,6 +425,51 @@ namespace Visma_Restaurant_Manager.Views
         }
         #endregion
         #region orders
+        private void runOrders() {
+            Write("You are now in Orders section");
+            bool on = true;
+            while (on)
+            {
+                WriteOrderCommands();
+                int choice;
+                if (!ReadInt(out choice))
+                {
+                    WriteInvalidChoice();
+                    continue;
+                }
+                switch (choice)
+                {
+                    case 1:
+                        List<Order> orders = _orderVm.getOrders();
+                        WriteOrders(orders);
+                        break;
+                    case 2:
+                        if (CreateOrder())
+                            WriteOrderCreated();
+                        else
+                            WriteAddOrderFail();
+                        break;
+                    case 5:
+                        _orderVm.WriteOrdersToCsv();
+                        Write("CSV created!");
+                        Write();
+                        break;
+                    case 6:
+                        _orderVm.LoadOrdersFromCsv();
+                        Write("Products Loaded!");
+                        Write();
+                        break;
+                    case 0:
+                        on = false;
+                        continue;
+                    default:
+                        WriteInvalidChoice();
+                        continue;
+                }
+            }
+        }
+
+
         private void WriteOrders(List<Order> orders) {
             Write("Previous orders:");
             foreach (Order order in orders)
@@ -531,6 +533,11 @@ namespace Visma_Restaurant_Manager.Views
             Write("Failed to create the order.");
             Write();
         }
+        private void WriteOrderCreated() {
+            Write("Order accepted!");
+            Write();
+        }
+
 
         private void WriteItemAdded() {
             Write("Item successfuly added!");

@@ -5,6 +5,11 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visma Restaurant Manager", "Visma Restaurant Manager.csproj", "{F12F8D65-4624-4C5B-B03D-695E83292041}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visma Restaurant Manager.UnitTests", "..\Visma Restaurant Manager.UnitTests\Visma Restaurant Manager.UnitTests.csproj", "{E4DD8AC9-BAD9-4FCD-B446-DB7196205AE5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F12F8D65-4624-4C5B-B03D-695E83292041} = {F12F8D65-4624-4C5B-B03D-695E83292041}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +20,10 @@ Global
 		{F12F8D65-4624-4C5B-B03D-695E83292041}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F12F8D65-4624-4C5B-B03D-695E83292041}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F12F8D65-4624-4C5B-B03D-695E83292041}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4DD8AC9-BAD9-4FCD-B446-DB7196205AE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4DD8AC9-BAD9-4FCD-B446-DB7196205AE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4DD8AC9-BAD9-4FCD-B446-DB7196205AE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4DD8AC9-BAD9-4FCD-B446-DB7196205AE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
