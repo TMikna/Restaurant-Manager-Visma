@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Visma_Restaurant_Manager.Views
 {
-    class Console
+    interface IView
     {
+        void Write(string str = "");
     }
 }

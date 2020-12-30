@@ -41,8 +41,15 @@ namespace Visma_Restaurant_Manager.DB
         public void addProducts(IEnumerable<Product> products) {
             _products.AddRange(products);
         }
+        public void loadProducts(IEnumerable<Product> products) {
+            _products.Clear();
+            _products.AddRange(products);
+        }
         public Product getProduct(int id) {
             return _products.Find(item => item.id == id);
+        }
+        public void removeProduct(int id) {
+            _products.RemoveAll(item => item.id == id);
         }
 
         public List<MenuItem> menuItems {
@@ -56,8 +63,15 @@ namespace Visma_Restaurant_Manager.DB
         public void addMenuItems(IEnumerable<MenuItem> menuItems) {
             _menuItems.AddRange(menuItems);
         }
+        public void loadMenuItems(IEnumerable<MenuItem> menuItems) {
+            _menuItems.Clear();
+            _menuItems.AddRange(menuItems);
+        }
         public MenuItem GetMenuItem(int id) {
             return _menuItems.Find(item => item.id == id);
+        }
+        public void removeMenuItem(int id) {
+            _menuItems.RemoveAll(item => item.id == id);    
         }
 
         public List<Order> orders {
@@ -69,6 +83,10 @@ namespace Visma_Restaurant_Manager.DB
             _orders.Add(order);
         }
         public void addOrders(IEnumerable<Order> orders) {
+            _orders.AddRange(orders);
+        }
+        public void loadOrders(IEnumerable<Order> orders) {
+            _orders.Clear();
             _orders.AddRange(orders);
         }
         public Order getOrder(int id) {

@@ -4,26 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Visma_Restaurant_Manager.DB;
+using Visma_Restaurant_Manager.ViewModels;
+using Visma_Restaurant_Manager.Views;
 
 namespace Visma_Restaurant_Manager
 {
     class Program
     {
+        public static DataBase DataBase { get; private set; }
+
         static void Main(string[] args)
         {
-            DataBase db = new DataBase();
+            DataBase database = new DataBase();
+            FileImput csvReader = new FileImput();
+            ProductViewModel productVM = new ProductViewModel(database, csvReader);
+            OrderViewModel orderVm = new OrderViewModel(database, csvReader);
+            MenuItemViewModel meniuVM = new MenuItemViewModel(database, csvReader);
 
-            db.addTest(1);
-            db.addTest(2);
-            db.addTest(3);
+            ConsoleUI consoleUI = new ConsoleUI(productVM, meniuVM, orderVm);
 
-            db.test.Add(4);
+            productVM.consoleUI = consoleUI;
+            orderVm.consoleUI = consoleUI;
+            meniuVM.consoleUI = consoleUI;
 
-            foreach(int el in db.test) {
-                Console.WriteLine(el);
-            }
-
-            Console.ReadLine();
+            consoleUI.run();
         }
     }
 }
